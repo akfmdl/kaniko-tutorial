@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    args:
+    - --dockerfile=Dockerfile
+    - --context=git://github.com/akfmdl/kaniko-tutorial.git#refs/heads/main
+    - --destination=goranidocker/test:v1
+    - --context-sub-path=.
