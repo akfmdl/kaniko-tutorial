@@ -11,3 +11,13 @@ spec:
     - --context=git://github.com/akfmdl/kaniko-tutorial.git#refs/heads/main
     - --destination=goranidocker/test:v1
     - --context-sub-path=.
+    volumeMounts:
+    - name: kaniko-secret
+      mountPath: /kaniko/.docker/
+  volumes:
+  - name: kaniko-secret
+    secret:
+      secretName: docker-registry-secret
+      items:
+        - key: .dockerconfigjson
+          path: config.json
