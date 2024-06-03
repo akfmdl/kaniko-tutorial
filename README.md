@@ -47,3 +47,13 @@ Check the status of the Kaniko build:
 ```bash
 kubectl logs -f kaniko --namespace=kaniko
 ```
+
+### Step 5: Verify the Image
+
+Verify that the image was built successfully using docker pull:
+
+```bash
+docker pull <your-docker-username>/<your-image-name>
+```
+
+or using the Docker registry UI.
